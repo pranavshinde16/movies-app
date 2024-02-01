@@ -1,4 +1,4 @@
-<h3 align="left"><a href = "https://movies-api-app-pranav-shinde.netlify.app/">Project Live Link</a></h3>
+<h2 align="left"><a href = "https://movies-api-app-pranav-shinde.netlify.app/">Project Live Link</a></h2>
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
