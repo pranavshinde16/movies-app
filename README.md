@@ -29,6 +29,6 @@ npm install
 **Running the Project**
 
 ```bash
-npm start or npm run dev
+npm start
 ```
 
