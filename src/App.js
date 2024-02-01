@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, Switch } from 'react-router-dom';
+import ShowList from './components/ShowList';
+import ShowDetails from './components/ShowDetails';
+import Billing from './components/Billing';
 
-function App() {
+const App = () => {
+  const [shows, setShows] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.tvmaze.com/search/shows?q=all')
+      .then(response => response.json())
+      .then(data => setShows(data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<ShowList shows={shows} />} />
+        <Route path="/details/:id" element={<ShowDetails />}/>
+        <Route path="/billing/:name" element={<Billing />}/>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
